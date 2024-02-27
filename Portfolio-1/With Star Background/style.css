@@ -1,0 +1,278 @@
+*{
+    font-family: 'Quicksand',sans-serif;
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/* All anchor tags */
+/*2: Making txts white to be visible over the background*/
+a{ 
+    text-decoration: none;
+    color: #fff;
+}
+body{
+    color: #fff;
+    /*3: Setting up the main bg of the window */
+    min-height: 100vh;
+    /*Sets the min height of the body tags, for diff windows/screen sizes*/
+    overflow: hidden;
+}
+
+/*4: Setting the container holding all the contents*/
+.container {
+    position: relative; /* Ensure the container's positioning context */
+    display: flex;
+    justify-content: center;
+    z-index: 1; /* Set a higher z-index to ensure it's above the background */
+}
+
+.glass-container {
+    display: block;
+    max-width: 72vw;
+    margin-top: 10vh;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.56);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.6px);
+    -webkit-backdrop-filter: blur(11.6px);
+}
+.logo{ /*7: Setting up the logo txt "PikoloSan"*/
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;                           /* Gives txt bold look */
+    margin-top: -10px;                          /* lifts the txt up */
+}
+/*8: Setting up the nav links */
+ul.nav-links{
+    margin: 0;                                  /*Lifts up the txt*/
+    float: right;                               /*ALign the txt to right*/
+    display: flex;                              /*Enables oneline arrangement txts.*/
+    list-style: none;                           /*Removes the bullet points infront of txt */
+}
+/*8: Continued */
+li.nav-link{
+    display: inline-block;
+    margin-left: 30px;                          /*adds space to left btw wach li tag */
+    font-size: 17px;
+    font-weight: 300;
+}
+
+li.nav-link:hover{
+    font-weight: 500;
+    
+}
+/*9: Setting image and content postion */
+.content{
+    display: flex; /*allowing content txt and img to be in one line*/
+    width: 100%;
+}
+.main{
+    /*Setting the content txt */
+    margin-top: 10vh;
+    display: inline-block;
+    padding: 20px;
+}
+
+.main h2{
+    font-size: 35px;
+}
+.main p{
+    /*Setting the content para */
+    font-size: 16px;
+    line-height: 23px;
+}
+/* 10: Setting up the button and its animation*/
+button {
+    margin-top: 10px;
+    /* position: fixed; */
+    width: 50%; /*Takes the complete space available */
+    height: 40px;/*Sets the height of the button*/
+    font-size: 15px;/*Sets size of in-button txt*/
+    color: #fff;/*color of in-button txt*/
+    background-color: transparent; /*Creates transparent button bg*/
+    border: 1px solid #fff;  /*Provs a solid 1px width white border */
+    border-radius: 10px;/*Providing curvature to border*/
+    cursor: pointer; /*Sets the type of cursor on hovering on the button*/
+    transition: all 0.3s ease;/*Sets the type and time for animation on hovering for button.*/
+}
+button:hover{
+    border-color: #2668db;
+    background-color: #2668db;
+}
+
+.image-wrapper{
+    display: flex;
+    margin-top: 5vh;
+    margin-left: 15vh;
+    position: relative;
+}
+
+/* 5: Setting the image size */
+.image-wrapper img{
+    max-width: 500px;
+}
+
+.attrebute{
+    position:absolute;
+    bottom: 20px;
+    right:0;
+    font-size: 12px;
+}
+/*12: Setting up the changes in positon and size of elements for diff screen size*/
+@media screen and (max-width:1075px){
+    .content{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 720px){
+    .logo{
+        font-size: 22px;
+    }
+    li.nav-link{
+        font-size: 13px;
+    }
+    .main h2{
+        font-size:28px;
+    }
+    .main p{
+        font-size:15px;
+    }
+    button{
+        font-size:13px;
+    }
+    .image-wrapper img{
+        max-width:400px;
+    }
+}
+
+
+section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* https://lh3.googleusercontent.com/ka_5IYJDRkXZnbptxq64LPuggGL5FM8gnpJlsuSiOQh4b39kMkiRbVfX8iK8bjMg5SLkdfoix09P60wyFjN2=w681-h614 */
+    /* background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg"); */
+    background: rgba(0, 0, 0, 0.901);
+    background-size: cover;
+    animation: animateBg 50s linear infinite;
+}
+
+@keyframes animateBg {
+    0%, 100% {
+        transform: scale(1.2); /* Set the scale to a constant value of 1.2 */
+    }
+}
+
+
+span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
+    animation: animate 3s linear infinite;
+}
+span::before{
+    content:'';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg,#fff,transparent);
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+span:nth-child(1){
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 1s;
+}
+span:nth-child(2){
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+span:nth-child(3){
+    top: 80;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+span:nth-child(4){
+    top: 0;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+span:nth-child(5){
+    top: 0;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+}
+span:nth-child(6){
+    top: 0;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+span:nth-child(7){
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 1.75s;
+}
+span:nth-child(8){
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+}
+span:nth-child(9){
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+}
+span:nth-child(9){
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.75s;
+}
